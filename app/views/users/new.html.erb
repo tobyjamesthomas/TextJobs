@@ -1,0 +1,37 @@
+<div style="margin: 20px; text-align: right; color: #fff;">
+
+  <h3><%= link_to 'Post Job', new_job_path %></h3>
+
+</div>
+
+<div style="margin: 80px; text-align: center; color: #fff;">
+
+  <h1>Get entry-level jobs in Toronto, by text.</h1>
+
+</div>
+
+<% if notice %>
+
+  <div style="margin: 80px; text-align: center; color: #fff;">
+
+    <p id="notice"><%= notice %></p>
+
+    <%= link_to 'Sign Up', root_path %>
+
+  </div>
+
+<% else %>
+
+  <div style="margin: 80px; text-align: center; color: #fff;">
+
+    <%= render 'form' %>
+
+  </div>
+
+<% end %>
+
+<div style="margin: 80px; text-align: center; color: #fff;">
+
+  Copyright © 2017 Paddle Inc.
+
+</div>

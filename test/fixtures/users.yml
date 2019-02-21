@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  phone: MyString
+  first_name: MyString
+  store: false
+  coffee: false
+  call_center: false
+
+two:
+  phone: MyString
+  first_name: MyString
+  store: false
+  coffee: false
+  call_center: false

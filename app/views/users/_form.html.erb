@@ -1,0 +1,49 @@
+<%= form_for(@user) do |f| %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+      <% @user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<body style="background-color: #0ca874"></body>
+
+<div style="text-align: center;">
+
+  <div style="margin: 80px; text-align: center; color: #fff;">
+
+  <h2>What jobs do you want to hear about?</h2>
+
+    <div class="field">
+      <%= f.check_box :store %>
+      <%= f.label :"Shops & Stores" %>
+      <%= f.check_box :coffee %>
+      <%= f.label :"Coffee Houses" %>
+      <%= f.check_box :call_center %>
+      <%= f.label :"Call Centers" %>
+    </div>
+
+  </div>
+
+  <div style="margin: 80px; text-align: center; color: #fff;">
+
+     <div class="field">
+    <%= f.label :"Name" %>
+    <%= f.text_field :first_name %>
+    <%= f.label :"Cell #" %>
+    <%= f.text_field :phone %>
+  </div>
+
+
+</div>
+
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+
+<% end %>
