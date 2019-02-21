@@ -8,6 +8,18 @@ This example is one of many. Many youth in the Greater Toronto Area and around t
 
 TextJobs is a simple proof of concept with immense possibility.
 
+## How it works
+
+<p align="center">
+  <img src="example.png" alt="TextJobs example" width="50%">
+</p>
+
+1. Simply sign up with your name, phone number and the kinds of entry-level jobs you're looking for (e.g. retail, coffee shops, call centers).
+2. Recruiters post new jobs opportunities, indicating what kind of role it is, where and how to apply.
+3. If a job opportunity appears in your area and matches your interest, you will receive a text message about the position and how to apply!
+
+*Note: TextJobs only works in the Great Toronto Area for now.*
+
 ---
 This project was created at and belongs to [Paddle HR](https://www.paddlehr.com/).
 
