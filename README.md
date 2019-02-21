@@ -15,7 +15,7 @@ TextJobs is a simple proof of concept with immense possibility.
 </p>
 
 1. Simply sign up with your name, phone number and the kinds of entry-level jobs you're looking for (e.g. retail, coffee shops, call centers).
-2. Recruiters post new jobs opportunities, indicating what kind of role it is, where and how to apply.
+2. Recruiters will post new jobs opportunities, indicating what kind of role it is, where and how to apply.
 3. If a job opportunity appears in your area and matches your interest, you will receive a text message about the position and how to apply!
 
 *Note: TextJobs only works in the Great Toronto Area for now.*
