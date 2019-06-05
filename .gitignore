@@ -16,9 +16,6 @@
 !/log/.keep
 /tmp
 
-# Ignore Gemfile.lock.  Windows and OSX commits are going to be constantly changing it.
-Gemfile.lock
-
 # Ignore .env where we keep secrets
 .env
 
