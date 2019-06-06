@@ -31,23 +31,22 @@ class JobsController < ApplicationController
     respond_to do |format|
       if @job.save
 
-        # put your own credentials here
+        # Twilio credentials
         account_sid = ENV["TWILIO_ACCOUNT_SID"]
         auth_token = ENV["TWILIO_AUTH_TOKEN"]
 
-        # set up a client to talk to the Twilio REST API
+        # Set up a client to talk to the Twilio REST API
         @client = Twilio::REST::Client.new account_sid, auth_token
 
-        # Twilio number
+        # Twilio phone number
         from_number = ENV["TWILIO_FROM_NUMBER"]
 
-        # get job type
+        # Get job type
         job_type = @job.job_type.name.downcase.tr(" ","_")
-
 
         User.where(job_type => true).each do |user|
 
-          # create body message
+          # Create body message
           body = user.first_name + ", " + @job.employer + " is hiring a " + @job.title + " in " + @job.location + ". It pays $" + ('%.2f' % @job.wage) + "/hr. Apply at " + @job.link + " before " + @job.expiry.strftime("%b %-d") + "."
 
           message = @client.account.messages.create(:body => body,

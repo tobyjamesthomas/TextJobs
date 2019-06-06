@@ -22,6 +22,9 @@
 # Ignore .swp files
 *.swp
 
+# Ignore .byebug_history
+.byebug_history
+
 # OS X
 .DS_Store
 _DS_Store
