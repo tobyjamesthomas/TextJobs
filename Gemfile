@@ -27,6 +27,9 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 # adding Twilio
 gem 'twilio-ruby', '~> 4.13.0'
+# adding GraphQL
+gem 'graphql', '~> 1.9.6'
+gem 'graphiql-rails', group: :development
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
