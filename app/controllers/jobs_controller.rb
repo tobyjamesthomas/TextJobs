@@ -45,15 +45,28 @@ class JobsController < ApplicationController
         job_type = @job.job_type.name.downcase.tr(" ","_")
 
         User.where(job_type => true).each do |user|
+          # Create text job
+          text_job = TextJob.new(job: @job, user: user, to: user.phone, from: from_number)
 
-          # Create body message
-          body = user.first_name + ", " + @job.employer + " is hiring a " + @job.title + " in " + @job.location + ". It pays $" + ('%.2f' % @job.wage) + "/hr. Apply at " + @job.link + " before " + @job.expiry.strftime("%b %-d") + "."
+          if text_job.save
 
-          message = @client.account.messages.create(:body => body,
-          :to => user.phone,
-          :from => from_number)
+            # Generate custom url with TinyURL
+            long_url = ENV['DOMAIN'] + "/text_jobs/" + text_job.id.to_s
+            short_url = ShortURL.shorten(long_url, :tinyurl)
 
-          puts message.sid
+            # Create body message
+            body = user.first_name + ", " + @job.employer + " is hiring a " + @job.title + " in " + @job.location + ". It pays $" + ('%.2f' % @job.wage) + "/hr. Apply at " + short_url + " before " + @job.expiry.strftime("%b %-d") + "."
+
+            # Send text message via Twilio
+            message = @client.account.messages.create(:body => body,
+            :to => user.phone,
+            :from => from_number)
+
+            puts message.sid
+
+            # Update text_job url and body
+            text_job.update(url: short_url, body: body)
+          end
 
         end
 

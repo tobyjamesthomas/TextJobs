@@ -13,10 +13,8 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
-
 # rails plugin that heroku works with
 gem 'rails_12factor', group: :production
-
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
@@ -30,6 +28,8 @@ gem 'twilio-ruby', '~> 4.13.0'
 # adding GraphQL
 gem 'graphql', '~> 1.9.6'
 gem 'graphiql-rails', group: :development
+# adding shorturl
+gem 'shorturl', '~> 1.0.0'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
