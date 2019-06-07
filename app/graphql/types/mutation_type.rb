@@ -7,6 +7,8 @@ module Types
       "Hello World"
     end
 
-    field :create_job, mutation: Mutations::CreateJob
+    # Post job
+    field :create_job, mutation: Mutations::CreateJob,
+      description: "Post a new job"
   end
 end
