@@ -1,6 +1,6 @@
 class Job < ActiveRecord::Base
 	belongs_to :job_type
-	has_many :text_jobs
+	has_many :text_jobs, dependent: :destroy
 	has_many :users, through: :text_jobs
 
 	# Returns users job was sent to through text_jobs
