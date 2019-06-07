@@ -10,5 +10,8 @@ module Types
 
     # phone number
     field :phone, String, null: false
+
+    # Jobs received
+    field :jobs_received, [Types::JobType], null: false
   end
 end
