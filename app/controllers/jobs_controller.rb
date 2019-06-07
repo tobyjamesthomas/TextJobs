@@ -31,44 +31,8 @@ class JobsController < ApplicationController
     respond_to do |format|
       if @job.save
 
-        # Twilio credentials
-        account_sid = ENV["TWILIO_ACCOUNT_SID"]
-        auth_token = ENV["TWILIO_AUTH_TOKEN"]
-
-        # Set up a client to talk to the Twilio REST API
-        @client = Twilio::REST::Client.new account_sid, auth_token
-
-        # Twilio phone number
-        from_number = ENV["TWILIO_FROM_NUMBER"]
-
-        # Get job type
-        job_type = @job.job_type.name.downcase.tr(" ","_")
-
-        User.where(job_type => true).each do |user|
-          # Create text job
-          text_job = TextJob.new(job: @job, user: user, to: user.phone, from: from_number)
-
-          if text_job.save
-
-            # Generate custom url with TinyURL
-            long_url = ENV['DOMAIN'] + "/text_jobs/" + text_job.id.to_s
-            short_url = ShortURL.shorten(long_url, :tinyurl)
-
-            # Create body message
-            body = user.first_name + ", " + @job.employer + " is hiring a " + @job.title + " in " + @job.location + ". It pays $" + ('%.2f' % @job.wage) + "/hr. Apply at " + short_url + " before " + @job.expiry.strftime("%b %-d") + "."
-
-            # Send text message via Twilio
-            message = @client.account.messages.create(:body => body,
-            :to => user.phone,
-            :from => from_number)
-
-            puts message.sid
-
-            # Update text_job url and body
-            text_job.update(url: short_url, body: body)
-          end
-
-        end
+        # Deploy texts to interested users via Twilio
+        @job.send_texts
 
         format.html { redirect_to new_job_path, notice: 'Your job posting was sent to interested candidates. Now sit back and wait for the applications to roll in.' }
         format.json { render :show, status: :created, location: @job }

@@ -6,5 +6,7 @@ module Types
     def test_field
       "Hello World"
     end
+
+    field :create_job, mutation: Mutations::CreateJob
   end
 end
