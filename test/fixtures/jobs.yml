@@ -8,6 +8,7 @@ one:
   wage: 1.5
   expiry: 2017-02-04 15:17:21
   link: MyString
+  job_type: job_types(:one)
 
 two:
   employer: MyString
@@ -17,3 +18,4 @@ two:
   wage: 1.5
   expiry: 2017-02-04 15:17:21
   link: MyString
+  job_type: job_types(:two)
